@@ -41,6 +41,20 @@ Sources opened: UU staff page (`uu.nl/medewerkers/IRKarnstedtHulpus/Onderzoek`),
 
 **Decision D0.2:** treat (a) text/knowledge-graph construction, (b) heterogeneous investor–company graphs and (c) sub-network/motif discovery as *supervisor-fit bonuses* in scoring. AML itself stays out (supervisor: crowded).
 
+### 0.2b Data-source checks (no downloads; pages opened 1 Nov 2026)
+
+| Source | Status checked tonight | Use |
+| --- | --- | --- |
+| **SEC Form 13F data sets** (sec.gov/data-research/sec-markets-data/form-13f-data-sets) | Public, quarterly ZIPs, **2013 Q2 → Jun–Aug 2026** (latest 96 MB file). Flattened XML extracts. | Common-ownership graphs (fund → stock bipartite, quarterly), temporal |
+| **SEC Financial Statement Data Sets** | Public, quarterly ZIPs **2009 Q1 → 2026 Q3**, include SIC codes | Fundamentals, node features |
+| **SEC Financial Statement *and Notes* Data Sets** | Public, monthly since Oct 2025, **text of notes included** (txt.tsv) | Text source for LLM/KG extraction (e.g. concentration-of-customers notes) |
+| **EDGAR APIs** (data.sec.gov: submissions, companyfacts, frames; nightly bulk ZIPs) | Public, no key; must follow SEC fair-access policy | Filing timelines (8-K events incl. Item 1.03 bankruptcy), XBRL facts |
+| **Credit-rating histories (Rule 17g-7(b))** | Public by rule: each NRSRO must post XBRL rating-action histories on its website, **12-month delay** (24 for investor-paid). S&P, KBRA, Egan-Jones pages found. A 2018 Oxford blog points to an open-source crawler + CSV mirror (ratingshistory.info) — mirror **not opened** (fetch needed approval) → [UNVERIFIED] currency | Rating downgrades/defaults as credit events (T7) |
+| **FRED corporate spreads** | **ICE BofA OAS series limited to 3 years of history since April 2026** (FRED note). Moody's Baa−10y Treasury (BAA10Y) still long daily history. | Market-level credit stress only; no firm-level spreads |
+| Prices (Stooq, yfinance), Kenneth French, Qlib data | Not checked tonight (fetch approvals); Qlib/benchmark repos on GitHub: GitHub REST *repo* endpoints are restricted to session-attached repos, *search* endpoint works | Check in Phase 6 via WebSearch-surfaced pages |
+
+**Access note D0.5:** WebFetch on URLs that did not appear in a search result or earlier page triggered an approval prompt that nobody can answer tonight (ratingshistory.info, a FRED series page). Decision: fetch only URLs surfaced by WebSearch or by previously opened pages. Subagents work the same way (search first, then fetch).
+
 ### 0.3 Other setup decisions
 - **D0.3:** Repo layout follows briefing §11. Raw per-theme sweep notes from subagents are kept in `sweep/T*.md` (provenance), and integrated into `lit_review.md`.
 - **D0.4:** Paper "year" = first public date (arXiv v1 or venue, whichever earlier). Peer-review status recorded separately.
