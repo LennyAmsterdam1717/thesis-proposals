@@ -82,8 +82,35 @@ Every query (tool, wording, outcome) is logged in the §F table of each sweep fi
 - **D1.6 (agent-reported oddities, to keep in mind):** the arXiv 2504.20058v2 HTML contained instruction-like text (ignored by the T4 agent). TAGN (MDPI 2026) claims public data but uses FactSet. Several papers have internal inconsistencies (Kang 2026, CSHT, Fanshawe, Li & Fan v1); see the sweep files.
 
 ## 3. Raw ideas, kill tests and rejected ideas
+- **D3.1 (2 Nov, 09:40):** 30 raw ideas written to `sweep/ideas_raw.md`, derived from §D gaps of T1–T8. 20 of 30 are cross-theme or unconventional (target ≥ 1/3).
+- **D3.2:** Kill tests were delegated to 4 parallel agents (K1 signed/causal; K2 link prediction/KG; K3 credit/events; K4 LLM graphs/audit/anomaly) under `sweep/KILL_RULES.md`: ≥ 3 new-wording searches per idea, open every potential killer, verdict SURVIVED/WEAKENED/KILLED. About 160 queries in total; logs and BibTeX are in `sweep/kill_K*.md`.
+- **D3.3 Outcome:** 0 killed outright, 13 survived, 16 weakened, 1 dropped.
+  - Survived: I1, I4, I7, I8, I9, I11, I12, I16, I19, I20, I23, I24, I26, I29.
+  - Weakened: I2, I3, I5, I6, I10, I13, I14, I15, I17, I18, I21, I25, I27, I28, I30.
+  - Full table at the end of topic_shortlist.md.
+- **Rejected ideas and why:**
+  - **I22** (insider/shadow trading): dropped. Form 4 does not report trades in *linked* firms (agent's understanding, not source-checked), labels are tiny, and nodes are named natural persons (GDPR). Close to killed by stenfors2025shadow / jaeger2025needles.
+  - **I13** (regime signed causal graphs on sectors): incremental after Lee 2026 (arXiv 2601.10732).
+  - **I15** (KG priors for causal discovery): prior art exists (GregNets 2021, Zoroddu TMLR 2024); remaining delta small.
+  - **I18** (US→Europe lead-lag): no free point-in-time STOXX 600 membership or European intraday data.
+  - **I27** (credit–equity Hawkes): zelvyte2026multiplex is close, and public credit marks are sparse.
+  - **I28** (decoupling/rewiring): 10-Ks rarely name Chinese counterparties; supply-link forecasting exists (Xiang 2025, Chang AAAI 2025).
+  - **I30** (distress-text diffusion): graph + text distress prediction exists (China); a US version would be incremental.
+- **D3.4 Paper that changed the picture:** **FinRipple** (xu2025finripple, Findings of ACL 2025, arXiv 2505.23826, [FT]): signed ripple prediction for KG-connected firms after news. Cards built on I4/I29 must position against it (differences: earnings/credit events, public graph, edge-level chronological evaluation).
+- **D3.5 Data facts learned in kill tests:**
+  - LoPucki BRD now at Univ. of Florida; free cases table ends Dec 2022.
+  - EDGAR full-text-search JSON was blocked by the proxy (no live test).
+  - edgartools exposes 8-K item lists.
+  - No public 2025–26 dataset of 10-K major-customer links was found (Compustat segments is commercial).
+  - FinReflectKG is the nearest public source of company relations.
+  - The OpenReview API was blocked (403) for K3 this morning, but worked for K1/K2.
 
 ## 4. Shortlist decisions
+- **D4.1:** Scored survivors and merged clusters with the §9 rubric (max 70). Merges: I7(+I24) → Card 1; I9+I8 → Card 2; I1(+I2, +I25 protocol) → Card 3; I29+I4(+I26) → Card 4; I10+I11+I12 → Card 5; I20+I19 → Card 6.
+- **D4.2:** Wrote **six** full cards instead of five, because two directions the supervisor named (anomaly detection, credit default) would otherwise only appear as runners-up. Runners-up R1–R5: I3+I21, I5+I6, I24, I17, I23.
+- **D4.3:** The ranking is by score, but the top four are within 6 points, which is inside judgement noise. The morning summary says so and flags Card 3 as the most direct hit on the supervisor's capitalised point.
+- **D4.4:** Every card adopts the shared protocol: chronological walk-forward, persistence/EMA baseline, repeated-vs-new edge split, point-in-time universe where possible, seeds and confidence intervals.
+- **D4.5:** The kill-test BibTeX (83 new entries) was merged into references.bib (227 unique keys in total).
 
 ## 5. Independent check — corrections log
 
