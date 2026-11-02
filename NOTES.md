@@ -158,3 +158,31 @@ Every query (tool, wording, outcome) is logged in the §F table of each sweep fi
 - The SJSU project FinKGR (naik2026finkgr, embargoed until 2027): does it use FinReflectKG? Ask the author or SJSU if Card 1 is chosen.
 - FinReflectKG licence (CC-BY-NC) vs thesis and internship use.
 - WRDS access at UU; UU AI & Finance Lab for overlapping student projects.
+
+## 11. Deep dive on Idea 3 (2 Nov 2026, afternoon)
+- **D11.1:** Frank asked for a deep dive on Card 3 (signed lead-lag edge-state forecasting) before pitching it. Output: `deep_dive_idea3.md`.
+- **D11.2 (status change):** krstev2025temporal is no longer a withdrawn ICLR submission. It was published in *Machine Learning* 115(7):173 (online 8 Jul 2026, open access) with code and data on GitHub. The core differences from Card 3 hold (37 assets; 5% threshold edges with lag 1 and no significance test; sign not a separate class; no persistence baseline). `references.bib` updated.
+- **D11.3 (data):** UU's WRDS list (uufinance.github.io/data/wrds/databases/) shows Compustat, Fama–French and S&P Dow Jones Indices but **no CRSP**. The question for the supervisor becomes: delisted prices via LSEG Workspace / FactSet (financedata@uu.nl)? The free point-in-time S&P 500 list is at github.com/fja05680/sp500 (updated Sep 2026).
+- **D11.4 (risk):** evidence that daily lead-lag between large caps is weak (Curme et al. 2015 [BG]; practitioner GitHub analysis 2026, not peer-reviewed). Weekly returns and same-day signed residual-correlation edges are planned fallbacks.
+- **Queries (all WebSearch):**
+  - lead-lag network stock returns 2026 arXiv
+  - dynamic signed network link prediction 2026
+  - statistically validated lead-lag networks stocks
+  - lead-lag relationship persistence stability over time equities 2025
+  - Cucuringu lead-lag 2025 2026
+  - signed GNN stock positive negative correlation 2026
+  - temporal graph benchmark persistence baseline EdgeBank 2025
+  - Jialin Yu computer vision firm networks lead-lag
+  - Cartea Cucuringu Jin detecting lead-lag
+  - "lead-lag" stocks time-varying regime network 2026 (extended)
+  - network momentum lead-lag graph learning 2025
+  - structural balance signed stock correlation network 2025 2026
+  - predict future stock correlation network edges link prediction 2026 (extended)
+  - Granger causality network S&P 500 FDR 2025
+  - benchmark dynamic signed networks datasets 2025
+  - UU WRDS CRSP
+  - S&P 500 historical constituents GitHub
+  - Stooq bulk / delisted
+  - lead-lag deep learning 2026 q-fin
+  - TGM / DyGLib / PyG signed
+- **Unverified leads:** a Jialin Yu (HKUST) computer-vision firm-network lead-lag paper (HKUST article links DOI 10.1016/j.jfineco.2023.103716, which may be Yan & Yu 2023 "Cross-stock momentum and factor momentum", JFE 150). Not opened; not cited in the deep dive.

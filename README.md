@@ -7,6 +7,7 @@ MSc AI thesis, Utrecht University (supervisor: Dr. Ioana Karnstedt-Hulpuș). Top
 | File | What it is |
 | --- | --- |
 | `topic_shortlist.md` | **Main deliverable**: morning summary, scores, 6 full candidate cards, 5 runner-up cards, table of all 30 raw ideas with kill-test outcomes |
+| `deep_dive_idea3.md` | **Deep dive on Idea 3 (Card 3)**, signed lead-lag edge-state forecasting: supporting papers, closest work (incl. Krstev et al. now in *Machine Learning* 2026), datasets, code, risks, proposal text (2 Nov 2026) |
 | `lit_review.md` | 2025–2026 landscape by theme T1–T8: per-theme synthesis, 158 per-paper entries, crowding map, comparison table |
 | `references.bib` | 227 cited works with verification notes ([FT]/[ABS], first-public date) |
 | `NOTES.md` | Decision log: access tests, data-source checks, query summary, kill-test decisions, rejected ideas, Phase 5 corrections, questions for the supervisor, checks for Frank |
