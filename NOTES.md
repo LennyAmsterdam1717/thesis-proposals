@@ -113,8 +113,33 @@ Every query (tool, wording, outcome) is logged in the §F table of each sweep fi
 - **D4.5:** The kill-test BibTeX (83 new entries) was merged into references.bib (227 unique keys in total).
 
 ## 5. Independent check — corrections log
+- **Set-up (2 Nov, 09:56):** two fresh agents that wrote no content. Check A covered 25 random keys (seed 20261102, list in `sweep/check_list.md`) plus the closest work of Cards 1–2. Check B covered the closest work of Cards 3–6 plus one new-wording kill search per Card 1–5. Reports: `sweep/check_A.md`, `sweep/check_B.md`.
+- **Results:** 61 citations checked (40 + 21). **Every link opened the right paper; no first author or first-public year was wrong.** 33 fully OK, 18 minor issues, 11 real errors. **No fresh kill search changed a verdict.**
+- **Real errors fixed:**
+  1. krstev2025temporal: authors were missing (stored as `anonymous2025temporal`). They are Krstev, Rigoni, Mishkovski, Pasa. Card 3 wrongly said the paper has "no sign": it includes ± lead-lag relations but predicts link existence. Card 3 also overstated what the reviewers asked for. Card 3 and the morning summary are reworded; the novelty is now edge *state* (+/−/inactive), statistical validation, birth/flip scoring and persistence baselines.
+  2. FinRipple (Card 4): it already outputs pos/neg/neutral per connected firm and has a chronological test. Card 4's difference is restated as: realised significant peer reactions as per-edge labels, earnings/credit events, public graph, credit transfer.
+  3. ren2026effect is a journal article (JIFMIM 106, 2026); bib and Card 6 updated.
+  4. alridhawi2026stock: the "GICS check" claim was wrong. Its learned weights are initialised from sector priors (circular), and there are only sector averages.
+  5. benhenda2026look and sun2025intercorprel(llm): keys did not resolve; unified.
+  6. gao2025detecting: a fictitious "v1 title" was removed.
+  7. A conflict-of-interest claim about benhenda2026look's author is now marked [UNVERIFIED].
+  8. izadifar2026institutional: the "current constituents" and "no edge birth" claims were too strong; softened.
+  9. pei2025gaining: split description corrected (the final test set is time-based).
+  10. lee2026source / lee2026regimedependent: same paper; unified (v2 retitled Sep 2026).
+  11. kong2026evaluating: peer-review status made consistent.
+- **Minor fixes applied:** zhang2026all title ("…and Mitigation…") and note; sadeghi2023causal dates; shukla2026timedependent and bettencourt2026stanford URLs; DOIs for xu2025finripple, krzeczewska2022does and naik2026finkgr; yilki2026supply support qualified (48-node graph); HalluBench (arXiv 2603.20252) added as a FinReflectKG follow-up in Card 1; huang2026crossstock v1 date; kose2026reconstructing numbers; zhou2025zero tag [FT].
+- **Not fixed (known, low impact):**
+  - lit_review.md still has duplicate entries for the same paper under different themes (e.g. li2025cmag, sun2025intercorprel, huang2026crossstock), sometimes with different [FT]/[ABS] tags. The higher tag (from the agent that read the full text) applies.
+  - The raw `sweep/T*.md` files are provenance and keep their original (uncorrected) text; `lit_review.md`, `topic_shortlist.md` and `references.bib` are the corrected versions.
+- **New leads from the checkers** (opened by the checkers, not re-read by the lead agent → treat as [UNVERIFIED] until read): Chiu et al., arXiv 2509.18775 (10-K risk-relation extraction vs same-year return correlation; related to Card 1); *Can Prompts Rewind Time for LLMs?*, arXiv 2510.02340 (related to Card 2); HalluBench, arXiv 2603.20252.
 
 ## 6. Deepening rounds
+- **D6.1 (2 Nov, 10:02): Phase 6 skipped at the user's request.** Before that instruction arrived, one quick code-availability check had already been run with the GitHub search API (metadata only, nothing executed). Repositories exist for:
+  - shenyangHuang/TGB; yule-BUAA/DyGLib; liu-yushan/TLogic; Lee-zix/RE-GCN; Liyyy2122/TiRGN;
+  - SherylHYX/pytorch_geometric_signed_directed (signed/directed GNNs, pushed Sep 2026); M1ngX/DeltaLag; SJTU-DMTai/MASTER; PeilinTime/MaGNet;
+  - e-izdfr/portfolio-holdings-prediction (13F benchmark); dgunning/edgartools (EDGAR incl. 8-K items, 13F); jakobrunge/tigramite (PCMCI); pygod-team/pygod;
+  - riazarbi/sp500-scraper (S&P 500 constituent history, pushed Oct 2026);
+  - FinReflectKG community repos (multi-hop QA set; ArangoDB ports).
 
 ## 7. Unverified leads
 

@@ -143,7 +143,7 @@ Full per-paper notes (from `sweep/T1.md`; raw query log and unopened leads stay 
 - Task: temporal signed link prediction.
 - Data: Bitcoin OTC/Alpha, Reddit hyperlinks (public); synthetic.
 - Code available? https://github.com/incoder-mru/Historical-Context-Integration-Module
-- What it leaves open: The authors list "market dynamics in financial networks" only as future work and call for standardised temporal signed benchmarks. It keeps a self-explainable backbone, which suits analyst-facing explanations of why an edge is predicted negative. There are only 6 snapshots per dataset, so the evaluation is very short in time.
+- What it leaves open: The authors list "market dynamics in financial networks" only as future work and call for standardised temporal signed benchmarks. It keeps a self-explainable backbone, which suits analyst-facing explanations of why an edge is predicted negative. Bitcoin OTC is split into only 6 snapshots (counts for other datasets not stated), so the evaluation is very short in time.
 
 ##### zhou2025deltalag — DeltaLag: Learning Dynamic Lead-Lag Patterns in Financial Markets
 - Citation: Zhou, W., Wang, S., Cucuringu, M., et al., *DeltaLag: Learning Dynamic Lead-Lag Patterns in Financial Markets*, ICAIF '25 (ACM), 2025. arXiv:2511.00390.
@@ -193,8 +193,8 @@ Full per-paper notes (from `sweep/T1.md`; raw query log and unopened leads stay 
 - Code available? Not stated.
 - What it leaves open: Reviewers flagged no causal validation of the lead-lag modules, a static industry hypergraph, US-only data and an inconsistent lead-lag description. Lead-lag is neither signed nor edge-level, so it cannot answer "which edge is active, and with which sign".
 
-##### anonymous2025temporal — A Temporal Graph Learning Framework for Lead-Lag Detection in Financial Markets
-- Citation: Anonymous (authors not visible), *A Temporal Graph Learning Framework for Lead-Lag Detection in Financial Markets*, ICLR 2026 submission (withdrawn), 2025.
+##### krstev2025temporal — A Temporal Graph Learning Framework for Lead-Lag Detection in Financial Markets
+- Citation: Krstev, I., Rigoni, D., Mishkovski, I., Pasa, L., *A Temporal Graph Learning Framework for Lead-Lag Detection in Financial Markets*, ICLR 2026 submission (withdrawn), 2025.
 - Link: https://api2.openreview.net/notes/search?term=lead-lag%20stock&limit=25 (forum KsWRLyIAKP; the forum page itself was blocked by a browser check)
 - First public: OpenReview reviews dated 2025-10-27 to 2025-11-02; Venue: ICLR 2026, withdrawn; Peer-reviewed: reviewed and withdrawn (ratings 2/2/4/4/4)
 - Verification: [ABS] (abstract fragments + 5 reviews read via the OpenReview API)
@@ -229,7 +229,7 @@ Full per-paper notes (from `sweep/T1.md`; raw query log and unopened leads stay 
 | zhang2026dualchannel — LSWJP: joint prediction of link, sign and weight in dynamic signed weighted networks | https://arxiv.org/html/2602.12663v1 | 2026-02-13 | [FT] | General method (Bitcoin/Wiki/email). Gains overstated vs its own Table III, no code. A useful "existence + sign + weight" multi-task template. |
 | huang2026crossstock — Cross-Stock Predictability via LLM-Augmented Semantic Networks | https://arxiv.org/abs/2604.19476 | 2026-04-21 | [ABS] | Builds 10-K-embedding edges, then an LLM filters spurious ones. Cross-stock predictability on S&P 500 2011–2019 with Sharpe 0.74 → 0.82. Unsigned and not lead-lag, but it is the stock analogue of kim2026llm. |
 | niu2026gapnet — GAPNet: plug-in jointly learning task-specific graph for dynamic stock relation | https://arxiv.org/abs/2602.00888 | 2026-01-31 | [ABS] | Learns a dynamic graph jointly with forecasting. Signed or lead-lag edges not stated. |
-| lee2026source — Source Exclusion in Regime-Gated Forecasting: a Cross-Market Audit of Equity-Factor Predictability (v1 listed as "Regime-Dependent Predictive Structure Between Equity Factors: Evidence from Granger Causality") | https://arxiv.org/abs/2601.10732 | 2026-01-06 | [ABS] | HMM-gated cross-factor predictability. None of 2,400 endpoints resolves a direction under confidence sequences. A cautionary result: regime-activated predictive edges are statistically fragile. |
+| lee2026regimedependent — Source Exclusion in Regime-Gated Forecasting: a Cross-Market Audit of Equity-Factor Predictability (v1 listed as "Regime-Dependent Predictive Structure Between Equity Factors: Evidence from Granger Causality") | https://arxiv.org/abs/2601.10732 | 2026-01-06 | [ABS] | HMM-gated cross-factor predictability. None of 2,400 endpoints resolves a direction under confidence sequences. A cautionary result: regime-activated predictive edges are statistically fragile. |
 | jing2026market — When market boundaries weaken: network reconfiguration and regime-dependent cross-asset spillovers | https://arxiv.org/abs/2605.30442 | 2026-05-28 | [ABS] | Rolling correlation networks + VAR connectedness across crypto, FX and S&P 500 (2017–2024). Integration is episodic and stress-dependent. Signedness not stated. |
 | hassan2026information — Information Networks of Stock Prices | https://arxiv.org/abs/2606.07450 | 2026-06-05 | [ABS] | Indonesian market, Pearson vs MI, MST/PMFG. Undirected, unsigned. |
 | alridhawi2026stock — Node Transformer + BERT sentiment | https://arxiv.org/abs/2603.05917 | 2026-03-06 | [ABS] | 20 S&P 500 stocks with correlation and supply-chain edges. No signed or lead-lag edges stated (IEEE Access DOI listed). |
@@ -240,7 +240,7 @@ Full per-paper notes (from `sweep/T1.md`; raw query log and unopened leads stay 
 | fang2025data — From Data Acquisition to Lag Modeling: A-Share | https://arxiv.org/abs/2506.19255 | 2025-06-24 | [ABS] | Two-stage pipeline: daily coupling, then intraday lead-lag (cross-corr/Granger). Strongly coupled pairs show more lead-lag at finer scales. |
 | chen2025dual — DRFN: dual relation fusion (static + dynamic relations) | https://arxiv.org/abs/2510.10695 | 2025-10-12 | [ABS] | Dynamic relations; not signed or lead-lag. |
 | sadek2025hybrid — news + LSTM + heterogeneous GraphSAGE | https://arxiv.org/abs/2512.08567 | 2025-12-09 | [ABS] | Off-theme (heterogeneous news graph). |
-| krstev2025graphmixer — "GraphMixer in Financial Networks: A Novel Approach to Lead/Lag Pattern Detection" (MSc thesis, Univ. Padova; supervisor L. Pasa) | https://thesis.unipd.it/handle/20.500.12608/81805 | available 2025-02-24 | [ABS] | An MSc thesis framing lead-lag as temporal link prediction (37 assets). Apparent precursor of anonymous2025temporal. |
+| krstev2025graphmixer — "GraphMixer in Financial Networks: A Novel Approach to Lead/Lag Pattern Detection" (MSc thesis, Univ. Padova; supervisor L. Pasa) | https://thesis.unipd.it/handle/20.500.12608/81805 | available 2025-02-24 | [ABS] | An MSc thesis framing lead-lag as temporal link prediction (37 assets). Precursor of krstev2025temporal (same first author and supervisor). |
 | Cucuringu, "Graph Clustering and Ranking for Time Series with Applications to Lead-Lag Detection in Equity Markets" (talk abstract, ISI WSC 2025, 6 Oct 2025) | https://isi-next.org/abstracts/submission/3184/view | 2025-10-06 | [ABS] | Talk, not a paper. Spectral clustering of signed and directed networks plus lead-lag clusters in US equities. |
 | Cucuringu, CodEx seminar abstract "Signed and Directed Graph Clustering in Financial Time Series: … the Market Tug-of-War" | https://www.math.colostate.edu/~king/codex/abstracts/cucuringu2026.html | 2026 (page undated) | [ABS] | Talk. Overnight vs daytime lead-lag "tug-of-war" propagating through directed lead-lag relations. The underlying paper was not identified. |
 | BSIC "Trading the Network II: What Should an Edge Mean?" (student investment-club note) | https://bsic.it/wp-content/uploads/2026/10/Trading-the-Network-II-11-10-2026.pdf | Oct 2026 (URL path) | [FT] | Grey literature. Residualised (market + sector removed) directed lead-lag graphs with k = 1 neighbour improve Ridge rank-IC (0.0328 vs 0.0289). Contemporaneous correlation graphs do not help, GCN/GAT underperform, and gains shrink after costs. A useful sanity baseline. |
@@ -265,8 +265,8 @@ Full per-paper notes (from `sweep/T2.md`; raw query log and unopened leads stay 
 - Graph type: temporal (discrete, quarterly); heterogeneous bipartite; directed; weighted; unsigned.
 - Task: link-weight / node-affinity ranking (a form of temporal link prediction).
 - Data: SEC Form 13F (public), fuzzy-matched to S&P 500 constituents (match score ≥80).
-- Code available? https://github.com/e-izdfr/portfolio-holdings-prediction (stated in the abstract)
-- What it leaves open: Only 99 managers (GPU limits). Long-only quarterly data. The 45-day filing lag is mentioned but its handling is not described. It matches to *current* S&P 500 constituents, which risks survivorship bias (the authors list survivorship as a challenge). It predicts weights only: there is no **edge-birth** (new position) or exit prediction, no signed increase/decrease edges, and no economic test. Stated future work: 13D/13G/N-PORT filings, multi-step forecasting, hypergraphs.
+- Code available? https://github.com/e-izdfr/portfolio-holdings-prediction (stated in the paper)
+- What it leaves open: Only 99 managers (GPU limits). Long-only quarterly data. The 45-day filing lag is mentioned but its handling is not described. It does not say whether the 503 S&P 500 securities are current or point-in-time constituents, which risks survivorship bias (the authors list survivorship as a general risk). It predicts weights only: new positions and exits are representable (zero weights) but not evaluated separately, no signed increase/decrease edges, and no economic test. Stated future work: 13D/13G/N-PORT filings, multi-step forecasting, hypergraphs.
 
 ##### marzi2026bayesian — A Bayesian approach to out-of-sample network reconstruction
 - Citation: Marzi, M., Squartini, T., *A Bayesian approach to out-of-sample network reconstruction*, arXiv:2602.21869, 2026 (journal DOI 10.1038/s42005-026-02725-1; the journal name is not shown on the page).
@@ -866,7 +866,7 @@ Full per-paper notes (from `sweep/T4.md`; raw query log and unopened leads stay 
 - Code available? https://github.com/Jackson906E/FinKario (stated in paper; repo not opened).
 - What it leaves open: Short window (~6 months) and China only. The paper does not frame the KG for link prediction or completion. The KG's value is measured only through LLM trend accuracy.
 
-##### sun2025intercorprelllm — InterCorpRel-LLM: Enhancing Financial Relational Understanding with Graph-Language Models
+##### sun2025intercorprel — InterCorpRel-LLM: Enhancing Financial Relational Understanding with Graph-Language Models
 - Citation: Q. Sun, J. Zheng, B. Jin et al., *InterCorpRel-LLM: ...*, arXiv 2510.09735, 2025.
 - Link: https://arxiv.org/abs/2510.09735 ; https://arxiv.org/html/2510.09735v1
 - First public: 2025-10-10; Venue: preprint; Peer-reviewed: no
@@ -936,7 +936,7 @@ Full per-paper notes (from `sweep/T4.md`; raw query log and unopened leads stay 
 - Task: classification ("off-graph" prediction) + path-based explanation.
 - Data: PitchBook (proprietary). Public? no (authors note the open Crunchbase snapshot ends in 2013).
 - Code available? https://anonymous.4open.science/r/MIRAGE-VC-323F
-- What it leaves open: Random 70:15:15 split despite the anti-leakage filtering. Success is defined differently in two places. The quality of the rationales is not evaluated. Proprietary data. Investor→company link prediction (who invests next) is not addressed.
+- What it leaves open: 70:15:15 class-balanced splits are used only to train the path selector/gate; the final test set is time-based (first rounds Oct 2021–Nov 2023, 2,510 startups). Success is defined differently in two places. The quality of the rationales is not evaluated. Proprietary data. Investor→company link prediction (who invests next) is not addressed.
 
 ##### liu2025beyond — Beyond Isolated Investor: Predicting Startup Success via Roleplay-Based Collective Agents (SimVC-CAS)
 - Citation: Z. Liu, H. Pei, X. Xiao et al., *Beyond Isolated Investor: ...*, arXiv 2512.22608, 2025.
@@ -1116,7 +1116,7 @@ Full per-paper notes (from `sweep/T5.md`; raw query log and unopened leads stay 
 ##### kong2026evaluating — Evaluating LLMs in Finance Requires Explicit Bias Consideration
 - Citation: Yaxuan Kong, Hoyoung Lee, Yoontae Hwang et al. (incl. Lopez-Lira, Zohren), *Evaluating LLMs in Finance Requires Explicit Bias Consideration*, arXiv:2602.14233, 2026.
 - Link: https://arxiv.org/abs/2602.14233 ; https://arxiv.org/html/2602.14233v1
-- First public: arXiv v1 2026-02-15; Venue: preprint, position paper (ICML-style keywords; acceptance not stated); Peer-reviewed: unknown
+- First public: arXiv v1 2026-02-15; Venue: preprint, position paper (ICML-style keywords; acceptance not stated); Peer-reviewed: no (preprint; position paper)
 - Verification: [FT]
 - Summary: Names five finance-specific evaluation biases: look-ahead, survivorship, narrative, objective and cost. It reviews **164 main-conference papers from 2023–2025** (ICML, ICLR, NeurIPS, KDD, AAAI, IJCAI, CIKM, ACL, EMNLP, NAACL, ICAIF).
   - Only **26.8% address look-ahead bias**.
@@ -1230,7 +1230,7 @@ Full per-paper notes (from `sweep/T5.md`; raw query log and unopened leads stay 
 #### A2. Additional opened papers (short entries; used for crowding count)
 
 **2026**
-- **benhenda2026lookaheadbench**: *Look-Ahead-Bench: a Standardized Benchmark of Look-ahead Bias in Point-in-Time LLMs for Finance*, M. Benhenda, arXiv:2601.13770, v1 2026-01-20, preprint. [ABS]
+- **benhenda2026look**: *Look-Ahead-Bench: a Standardized Benchmark of Look-ahead Bias in Point-in-Time LLMs for Finance*, M. Benhenda, arXiv:2601.13770, v1 2026-01-20, preprint. [ABS]
   - Measures LLM look-ahead as alpha decay across regimes. Finds significant bias in Llama 3.1 and DeepSeek 3.2 but not in point-in-time "Pitinf" models.
   - Code: https://github.com/benstaf/lookaheadbench (stated).
 - **xiao2026rankglu**: *RankGLU: Residual Gated Score Formation for Cross-Sectional Stock Prediction*, H. Xiao, J. Xu, F. Qu et al., arXiv:2606.08930, v1 2026-06-08, preprint. [ABS]
@@ -1265,7 +1265,7 @@ Full per-paper notes (from `sweep/T5.md`; raw query log and unopened leads stay 
 - **tan2025h3mssmoes**: *H3M-SSMoEs: Hypergraph-based Multimodal Learning with LLM Reasoning and Style-Structured Mixture of Experts*, P. Tan, L. Xie, C. Zhi et al., arXiv:2510.25091, v1 2025-10-29, preprint. [ABS]
   - Local and global hypergraphs, a frozen LLM with adapters, and industry experts.
   - Code: https://github.com/PeilinTime/H3M-SSMoEs (stated).
-- **sun2025intercorprelllm**: *InterCorpRel-LLM: Enhancing Financial Relational Understanding with Graph-Language Models*, Q. Sun, J. Zheng, B. Jin et al., arXiv:2510.09735, v1 2025-10-10, preprint. [ABS]
+- **sun2025intercorprel**: *InterCorpRel-LLM: Enhancing Financial Relational Understanding with Graph-Language Models*, Q. Sun, J. Zheng, B. Jin et al., arXiv:2510.09735, v1 2025-10-10, preprint. [ABS]
   - GNN+LLM trained on **proprietary FactSet supply-chain** data. Supply-relation F1 0.854 vs GPT-5 0.229.
   - Shows that real relations can be *predicted*; not a return model.
 - **xu2025modeling**: *Modeling Interactions Between Stocks Using LLM-Enhanced Graphs for Volume Prediction* (LED-GNN), Z. Xu, Y. Liu, Y. Wang et al. (PKU and Mizuho), FinNLP@COLING/ACL workshop, Jan 2025, peer-reviewed workshop. [FT] https://aclanthology.org/2025.finnlp-1.14.pdf
@@ -1474,7 +1474,7 @@ Full per-paper notes (from `sweep/T6.md`; raw query log and unopened leads stay 
 
 #### A2. Also opened (lower priority; short entries)
 - **zan2026beyond**: Zan, Assaad, Devijver, Gaussier, *Beyond Stationarity in Time Series: Discovering Causal Structures and Latent Regimes via Markov Blankets* (RCBNB-MB), arXiv:2609.05150, 2026-09-04, preprint [ABS]. Joint regime segmentation and per-regime causal graphs with guarantees; tested on IT monitoring data, not finance. https://arxiv.org/abs/2609.05150
-- **lee2026source**: Lee, C., *Source Exclusion in Regime-Gated Forecasting: A Cross-Market Audit of Equity-Factor Predictability*, arXiv:2601.10732 (v1 Jan 2026, titled in the listing "Regime-Dependent Predictive Structure Between Equity Factors: Evidence from Granger Causality"; v2 2026-09-26), preprint [ABS]. Shows that "dropping a lag block" is not the same as excluding a source when an HMM regime gate also uses it, and that none of 2,400 endpoints resolves a Granger direction under simultaneous confidence sequences. Relevant as a cautionary tale for regime-switching Granger graphs. https://arxiv.org/abs/2601.10732
+- **lee2026regimedependent**: Lee, C., *Source Exclusion in Regime-Gated Forecasting: A Cross-Market Audit of Equity-Factor Predictability*, arXiv:2601.10732 (v1 Jan 2026, titled in the listing "Regime-Dependent Predictive Structure Between Equity Factors: Evidence from Granger Causality"; v2 2026-09-26), preprint [ABS]. Shows that "dropping a lag block" is not the same as excluding a source when an HMM regime gate also uses it, and that none of 2,400 endpoints resolves a Granger direction under simultaneous confidence sequences. Relevant as a cautionary tale for regime-switching Granger graphs. https://arxiv.org/abs/2601.10732
 - **jung2026common**: Jung, J., Lee, K., *Common Signals, Spurious Cross-Excitation, and Identification in Multivariate Hawkes Processes*, arXiv:2610.19428, 2026-10-14, preprint [ABS]. Latent common signals can mimic cross-excitation, and second-order information cannot separate the mechanisms (third-order cumulants can). Crypto application [crypto, transferable]: a direct theoretical warning against reading learned influence edges causally. https://arxiv.org/abs/2610.19428
 - **yi2026causalcompass**: Yi, H., Shen, X., Wu, Y., et al., *CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios*, arXiv:2602.07915 (v1 2026-02-08, v2 2026-04-30), preprint [ABS]. Eight violation scenarios; no method wins everywhere; deep-learning methods are most robust; NTS-NOTEARS depends heavily on standardization. Code: https://anonymous.4open.science/r/CausalCompass-anonymous-5B4F/ ; https://arxiv.org/abs/2602.07915
 - **redden2026causal**: Redden, B., Wang, H., Li, S., *Causal-INSIGHT: Probing Temporal Models to Extract Causal Structure*, arXiv:2603.25473, 2026-03-26, preprint [ABS]. Post-hoc, intervention-inspired clamping of a trained predictor to extract directed lagged influence graphs, with a ground-truth-free sparsity criterion (Qbic). It explicitly extracts what the predictor relies on, not true causal structure. https://arxiv.org/abs/2603.25473
@@ -1820,7 +1820,7 @@ Full per-paper notes (from `sweep/T8.md`; raw query log and unopened leads stay 
 - Link: https://arxiv.org/abs/2605.15842 (FT: https://arxiv.org/html/2605.15842v1)
 - First public: v1 15 May 2026; Venue: preprint (also listed as an INET Oxford working paper 2026-14 in search snippets); Peer-reviewed: no
 - Verification: [FT]
-- Summary: Uses Common Crawl snapshots (two per year, 2015–2025) of firm websites for ~21k ORBIS semiconductor firms. GPT-4o-mini (≈130 USD) assigns each domain pair one of: supplies, supplied-by, partners, owns, owned-by, none. Precision is 0.884 and F1 0.784 on 100 manually annotated pages. About 22% of overlapping edges are in S&P Capital IQ, which is 2.3× the configuration-model expectation (z = 23). The network shows a 9% edge drop during the 2022 chip shortage, rising NVIDIA centrality, and a 2024–25 contraction of US–China links that the authors attribute to export controls ("strategic decoupling").
+- Summary: Uses Common Crawl snapshots (two per year, 2015–2025) of firm websites for ~21k ORBIS semiconductor firms. GPT-4o-mini (≈130 USD) assigns each domain pair one of: supplies, supplied-by, partners, owns, owned-by, none. Precision is 0.884 and F1 0.784 on 100 manually annotated pages. About 22% of identified edges (380 links) also appear in S&P Capital IQ, 2.3× the configuration-model expectation (z = 23.1). The network shows a 9% edge drop during the 2022 chip shortage, rising NVIDIA centrality, and a 2024–25 contraction of US–China links that the authors attribute to export controls ("strategic decoupling").
 - Graph type: temporal (yearly snapshots); multi-relational, directed; heterogeneous by country
 - Task: other (network reconstruction + descriptive temporal network analysis)
 - Data: Common Crawl, OECD ICIO and BACI are public. ORBIS and S&P Capital IQ (validation) are licensed. Partly public.
@@ -1990,7 +1990,7 @@ Full per-paper notes (from `sweep/T8.md`; raw query log and unopened leads stay 
 - What it leaves open: Graph and relational models are **not discussed**. No equivalent audit exists for stock-graph / GNN papers: point-in-time graphs, survivor-only universes, full-sample correlation edges.
 
 ##### gao2025detecting — Detecting Lookahead Bias in LLM Forecasts
-- Citation: Gao, Z., Jiang, W., Yan, Y., *Detecting Lookahead Bias in LLM Forecasts* (v1 title: "A Test of Lookahead Bias in LLM Forecasts"), arXiv:2512.23847.
+- Citation: Gao, Z., Jiang, W., Yan, Y., *Detecting Lookahead Bias in LLM Forecasts*, arXiv:2512.23847.
 - Link: https://arxiv.org/abs/2512.23847
 - First public: v1 29 Dec 2025 (v2 12 Jun 2026); Venue: preprint; Peer-reviewed: no
 - Verification: [ABS]
@@ -2011,7 +2011,7 @@ Full per-paper notes (from `sweep/T8.md`; raw query log and unopened leads stay 
 - Task: other (benchmark)
 - Data: not detailed in abstract
 - Code available? https://github.com/benstaf/lookaheadbench
-- What it leaves open: Workflows only, with no relational or graph-building tasks. The single-author benchmark comes from the vendor of the Pitinf models (possible conflict of interest).
+- What it leaves open: Workflows only, with no relational or graph-building tasks. The single author gives no affiliation; whether he is linked to the Pitinf vendor (PiT-Inference) is [UNVERIFIED].
 
 ##### li2025can — Can LLM-based Financial Investing Strategies Outperform the Market in Long Run? (FINSABER)
 - Citation: Li, W. W., Kim, H., Cucuringu, M., Ma, T., *Can LLM-based Financial Investing Strategies Outperform the Market in Long Run?*, arXiv:2505.07078; KDD 2026 Datasets & Benchmarks (Oral).
@@ -2208,7 +2208,7 @@ Full per-paper notes (from `sweep/T8.md`; raw query log and unopened leads stay 
 ##### huang2026crossstock — Cross-Stock Predictability via LLM-Augmented Semantic Networks
 - Citation: Huang, Y., Fan, Z., Hu, K., Ye, Y., *Cross-Stock Predictability via LLM-Augmented Semantic Networks*, arXiv:2604.19476, 2026.
 - Link: https://arxiv.org/html/2604.19476
-- First public: arXiv 2026 (v2 26 Apr 2026; v1 date not shown in extraction); Venue: preprint (q-fin.PM); Peer-reviewed: no
+- First public: arXiv v1 2026-04-21 (v2 2026-04-26); Venue: preprint (q-fin.PM); Peer-reviewed: no
 - Verification: [FT] (HTML; limitations truncated)
 - Summary: Builds a candidate stock graph from 10-K risk-factor embeddings, then lets an LLM (DeepSeek) label each pair as competitor / supply chain / complementary / substitute / peer / unrelated, and uses the filtered relation graph to aggregate pairs-trading mean-reversion signals on S&P 500 (2011–2019). LLM-filtered network Sharpe 0.82 vs 0.74 baseline and 0.79 SIC.
 - Graph type: annually rebuilt (time-varying), typed relations, undirected; trading signal effectively signed per pair.

@@ -8,10 +8,10 @@
 ## Morning summary
 
 **What was found.** The landscape splits cleanly. **Crowded:** new GNN/transformer/hypergraph architectures for stock return prediction (an estimated 150–300 papers in 2025–26 on ageing benchmarks), "LLM builds a financial KG → trend prediction" pipelines, and GNN default scoring on private Chinese/Korean enterprise graphs. **Thin or empty, where your supervisor's signals point:**
-- signed, directed, time-activated lead-lag edges *as prediction targets* (one withdrawn ICLR 2026 attempt on 37 assets);
+- signed, directed, time-activated lead-lag edges *as prediction targets*; the one attempt is a withdrawn ICLR 2026 submission that predicts link existence on 37 assets;
 - link prediction on *public* company graphs with honest temporal evaluation; none of the TGB benchmark suites has a company dataset;
 - temporal KG completion on public company KGs (the free FinReflectKG, with 17.5M time-stamped 10-K triples, has never been used for it);
-- credit or earnings events → *which connected stocks react, and with which sign* (public-data version absent; FinRipple, ACL Findings 2025, is the closest and uses commercial data and generic news);
+- credit or earnings events → *which connected stocks react, and with which sign* (public-data version absent; FinRipple, ACL Findings 2025, is the closest: signed impact per connected firm after generic news, on a commercial graph);
 - auditing LLM-built and model-learned stock graphs: construction sensitivity, look-ahead leakage, and whether they match real economic links.
 
 A recurring lesson: on financial graphs, **persistence/EMA baselines nearly match the best temporal GNNs** (13F benchmark, July 2026). Every topic below therefore makes "beat persistence honestly, on chronological splits" part of the design.
@@ -36,7 +36,7 @@ All 30 raw ideas survived or were weakened. None was killed outright, but one (i
 
 **What to check yourself.** Google Scholar "cited by" for the closest papers of your favourite topic. In particular, check:
 - FinReflectKG (arXiv 2508.17906)
-- the withdrawn lead-lag submission krstev2025temporal (OpenReview forum KsWRLyIAKP)
+- the withdrawn lead-lag submission krstev2025temporal (Krstev et al., OpenReview forum KsWRLyIAKP)
 - FinRipple (2505.23826)
 - yang2026llm (2607.15640)
 - izadifar2026institutional (2607.12067)
@@ -80,12 +80,12 @@ Scores are judgements. A difference of ≤ 3 points is not meaningful. Choose by
 **3. Supervisor directions.** Link prediction (core) · heterogeneous graph (typed relations, firm/product/sector nodes) · temporal graph · text and knowledge networks (her expertise) · optional time series + graph in RQ B.
 
 **4. Closest 2025–2026 work and the difference.**
-- **arun2025finreflectkg**: *FinReflectKG*, ICAIF 2025 (arXiv 2508.17906) [FT; dataset card opened]. Builds the KG: 743 S&P 500 firms, 10-Ks 2014–2024, about 17.5M triples with start/end dates, CC-BY-NC. Used only for QA (FinReflectKG-MultiHop) and extraction evaluation (EvalBench). *Difference:* we use it for **temporal link prediction** and an **economic test of predicted edges**, which no paper has done.
-- **sun2025intercorprelllm**: *InterCorpRel-LLM* (arXiv 2510.09735) [FT/ABS]. Supplier-link prediction with GNN + LLM, but on proprietary FactSet, a single year and a random split. *Difference:* public data, year-ahead temporal split, several relation types.
+- **arun2025finreflectkg**: *FinReflectKG*, ICAIF 2025 (arXiv 2508.17906) [FT; dataset card opened]. Builds the KG: 743 S&P 500 firms, 10-Ks 2014–2024, about 17.5M triples with start/end dates, CC-BY-NC. Used only for QA (FinReflectKG-MultiHop), extraction evaluation (EvalBench) and hallucination detection in KG-augmented QA (HalluBench, arXiv 2603.20252, Mar 2026). *Difference:* we use it for **temporal link prediction** and an **economic test of predicted edges**, which no paper has done.
+- **sun2025intercorprel**: *InterCorpRel-LLM* (arXiv 2510.09735) [FT/ABS]. Supplier-link prediction with GNN + LLM, but on proprietary FactSet, a single year and a random split. *Difference:* public data, year-ahead temporal split, several relation types.
 - **dukkipati2025predictive** (arXiv 2504.20058, v2 2026) [ABS]. Stock-market TKGs whose relations are modelled as Hawkes events *to rank returns*; KG completion is not the task.
 - **naik2026finkgr** (*FinKGR*, SJSU MSc project, Jul 2026) [ABS; PDF embargoed to 2027]. Temporal link prediction on an unnamed financial TKG; results not verifiable. **Must re-check before go/no-go.**
 - **li2024findkg** [BACKGROUND] (*FinDKG*, 2024). The only earlier financial TKG link-prediction study, built from news.
-- Supporting: **yilki2026supply** (arXiv 2606.29290) [ABS] shows 10-K signals propagated over supply links predict returns (supports RQ B); **huang2026crossstock** (arXiv 2604.19476) [FT] shows LLM-typed 10-K edges carry trading information.
+- Supporting: **yilki2026supply** (arXiv 2606.29290) [ABS] shows 10-K MD&A signals propagated over a small hand-curated supply graph (48 nodes, 51 edges, 255-firm sample) predict returns (supports RQ B, but not at scale); **huang2026crossstock** (arXiv 2604.19476) [FT] shows LLM-typed 10-K edges carry trading information.
 
 **5. Kill test.** Searches (kill_K2, I7): "FinReflectKG link prediction knowledge graph completion"; "temporal knowledge graph forecasting company relations 10-K filings 2026"; "FinReflectKG temporal reasoning benchmark 2026 arXiv"; "supply chain link prediction public firms SEC filings knowledge graph embedding 2025"; OpenReview API "financial temporal knowledge graph completion". Outcome: **SURVIVED**. No use of FinReflectKG, or of any public time-stamped 10-K company KG, for link prediction was found. The only near-hit (FinKGR) is unverifiable.
 
@@ -136,9 +136,9 @@ Main risks: LLM-extraction noise makes "new" edges partly extraction artefacts; 
 
 **4. Closest 2025–2026 work and the difference.**
 - **yang2026llm**: *LLM Latent Edge Measurement: Point-in-Time Economic Graphs…* (arXiv 2607.15640) [FT]. Separates a filing channel from a parametric "knowledge" channel and warns that the latter causes look-ahead bias, but **measures no contamination**, uses one LLM and has no return test (the K4 agent estimates it covers about 20% of this idea).
-- **zhang2026all**: *All Leaks Count, Some Count More* (arXiv 2602.17234) [FT/ABS]. Claim-level temporal-leakage detection in LLM *forecast rationales*, not in relations or graphs.
+- **zhang2026all**: *All Leaks Count, Some Count More* (arXiv 2602.17234) [FT/ABS]. Claim-level temporal-leakage detection (Shapley-DCLR) and mitigation (TimeSPEC) in LLM *forecast rationales*, not in relations or graphs.
 - **gao2025detecting** (LAP test, arXiv 2512.23847) and **benhenda2026look** (*Look-Ahead-Bench*, arXiv 2601.13770) [ABS]. Look-ahead in LLM *forecasts*, not edges.
-- **zhou2025zero** (*Zero-shot extraction of stock relationship graphs*, FinNLP 2025) [ABS], **huang2026crossstock** [FT]. Each uses one LLM and one prompt; neither tests leakage or construction variance.
+- **zhou2025zero** (*Zero-shot extraction of stock relationship graphs*, FinNLP 2025) [FT], **huang2026crossstock** [FT]. Each uses one LLM and one prompt; neither tests leakage or construction variance.
 - Method sources outside finance: **baumann2025large** (*LLM Hacking*, arXiv 2509.08825) and **crainic2026prompt** (*specification curve for LLM-based social science*, ICML 2026) [ABS]. The multiverse method exists for annotation, not for company graphs.
 - **kong2026evaluating** (arXiv 2602.14233) [FT]. Only 26.8% of 164 finance-LLM papers address look-ahead; graphs are not covered.
 
@@ -194,11 +194,11 @@ Risks: LLM inference budget; contamination may be small (still a clean, publisha
 **3. Supervisor directions.** **Signed, time-activated edges + time series (her capitalised point)** · link prediction · temporal graphs · optional anomaly detection (sign-flip bursts; runner-up R1).
 
 **4. Closest 2025–2026 work and the difference.**
-- **krstev2025temporal**: *A Temporal Graph Learning Framework for Lead-Lag Detection in Financial Markets*, ICLR 2026 submission, **withdrawn** (OpenReview forum KsWRLyIAKP) [ABS + reviews via API]. Lead-lag as temporal link prediction, but 37 assets, fixed one-day lag, ad-hoc 5% threshold, no sign and no statistical validation; reviewers asked for exactly these fixes. *Difference:* signed, statistically validated edges on a realistic universe, with persistence baselines.
-- **zhou2025deltalag**: *DeltaLag*, ICAIF 2025 (arXiv 2511.00390) [FT]. Learns per-pair dynamic lags for return prediction; edges are unsigned and never validated or evaluated as edges.
+- **krstev2025temporal** (Krstev, Rigoni, Mishkovski, Pasa): *A Temporal Graph Learning Framework for Lead-Lag Detection in Financial Markets*, ICLR 2026 submission (public Oct 2025), **withdrawn** (OpenReview forum KsWRLyIAKP) [ABS + reviews via API]. Lead-lag as temporal link prediction on 37 assets with a fixed one-day lag and an ad-hoc 5% threshold. It includes a scenario with positive *and* negative lead-lag relations, but (as far as visible) predicts link existence rather than the sign as a state, and does no statistical edge validation. Reviewers asked for justification of the lag/threshold, a larger universe and Granger/TE/VAR comparisons. *Difference:* edge **state** (+/−/inactive, with lag) as the target, statistically validated edges on a realistic point-in-time universe, separate scoring of births and sign flips, and persistence baselines. The last two are this thesis's own additions; the reviewers did not ask for them.
+- **zhou2025deltalag**: *DeltaLag*, ICAIF 2025 (arXiv 2511.00390) [FT]. Learns per-pair dynamic lags for return prediction; edges are unsigned (softmax weights) and only described (lag histogram, leader counts), never statistically validated or tested for stability.
 - **fanshawe2026forecasting** (arXiv 2601.04602) [FT]. Forecasts *signed* pairwise correlations, but undirected and contemporaneous; motivates sign flips without evaluating them.
-- **hou2026inductive** (IDP-DSN, arXiv 2604.18213) and **regier2026dynamic** (HCIM, arXiv 2605.26290) [FT/ABS]. Dynamic signed link prediction (+/−/none) with code, tested only on Bitcoin-OTC/Alpha and Wikipedia; regier2026 calls for signed temporal benchmarks.
-- **dahake2026sectoral** (arXiv 2608.12023) and **acedo2026triadic** (arXiv 2608.10788) [FT/ABS]. Structural balance on *undirected, same-day* correlation networks; descriptive or coincident.
+- **hou2026inductive** (IDP-DSN, arXiv 2604.18213) and **regier2026dynamic** (HCIM, arXiv 2605.26290) [FT/ABS]. Dynamic signed link prediction (+/−/none) with code, tested only on trust/social graphs (Bitcoin-OTC/Alpha, Wiki-RfA, Epinions, Reddit, synthetic); regier2026 calls for standardised signed temporal benchmarks and names financial-market dynamics as future work.
+- **dahake2026sectoral** (arXiv 2608.12023) and **acedo2026triadic** (arXiv 2608.10788) [FT/ABS]. Structural balance / triad indices on *undirected, same-day* correlation networks; descriptive (dahake) or explicitly coincident, not leading (acedo).
 - Background: **castilho2021forecasting** (arXiv 2110.11751) [FT, BACKGROUND]. Link prediction of future co-movement edges vs persistence, unsigned and undirected.
 
 **5. Kill test.** 13 searches + 2 OpenReview queries (kill_K1, I1) covered lead-lag link prediction, signed temporal stock benchmarks, correlation-edge/sign forecasting, and crypto/FX/commodity analogues. Outcome: **SURVIVED**. No 2025–2026 work forecasts signed lead-lag edge states on a realistic equity universe, and no signed temporal stock-network benchmark exists. The NJIT "signed graph Laplacian" paper (J. Fin. Econometrics 2024) builds a pricing factor and does not forecast edges [ABS, BACKGROUND].
@@ -250,7 +250,7 @@ Risks: lead-lag edges are sparse and noisy, so births/flips may be close to unpr
 **3. Supervisor directions.** **Credit default → stock market** · signed, time-activated edges (activation conditioned on events) · link prediction · heterogeneous graphs.
 
 **4. Closest 2025–2026 work and the difference.**
-- **xu2025finripple**: *FinRipple*, Findings of ACL 2025 (arXiv 2505.23826) [FT]. Predicts a signed "ripple" score for KG-connected S&P 500 firms after news, aligned to residual returns. *Difference:* earnings and credit events instead of generic news; a **public** graph instead of Compustat/BoardEx/Thomson; edge-level classification with chronological splits; a credit-transfer question.
+- **xu2025finripple**: *FinRipple*, Findings of ACL 2025 (arXiv 2505.23826) [FT]. Outputs, per KG-connected S&P 500 firm, a positive/negative/neutral impact type and a signed −10…+10 score after a news event, trained against CAPM residuals, with a chronological test period (2020–mid-2022) and no released code. *Difference:* earnings and credit events instead of generic news; a **public** graph instead of Compustat-Capital IQ/BoardEx/Thomson; labels from statistically significant *realised* peer reactions, evaluated per edge (F1/AUC per sign) instead of by residual R² and portfolios; a credit-transfer question.
 - **brogaard2026network** (working paper, 2026) [FT]. A production-network theory plus GNN for **CDS spreads**, with industry-level edges and commercial data.
 - **zelvyte2026multiplex** (arXiv 2606.15755) [FT/ABS]. A multiplex Hawkes model of contagion among 99 firms' credit spreads; CDS only, no equity layer.
 - **kim2026defaultgnn** (*DefaultGNN*, CIKM 2026) [FT/ABS]. Default prediction on private Korean buyer–seller networks; unlisted firms, no equity reactions.
@@ -312,9 +312,9 @@ Risks: weak earnings-day spillover signal (Frankel 2025); too few credit events.
 
 **4. Closest 2025–2026 work and the difference.**
 - **guo2026nystrom** (arXiv 2609.08106) [FT]. Audits **one** model (MASTER) on Chinese A-shares against industry and return similarity: attention is near-uniform and anti-correlated with return similarity. *Difference:* several models with explicit learned adjacency, a US universe, 10-K/13F/lead-lag relation layers, and a forward-looking test.
-- **niu2025ngat** (arXiv 2507.02018) [FT] and **wang2025quantbench** (arXiv 2504.18600) [FT]. Graph value is fragile; graph quality is masked by model capacity. No relation-level audit.
+- **niu2025ngat** (arXiv 2507.02018) [FT] and **wang2025quantbench** (arXiv 2504.18600) [FT]. Graph value is fragile (QuantBench: graphs do not consistently help); stronger architectures can hide graph deficiencies (NGAT). Neither audits graphs against real relations.
 - **zhou2025deltalag** [FT]. Learned lead-lag edges never validated.
-- Kill-test finds: **sadeghi2023causal** (CD-NOTS, Bloomberg) [FT, BACKGROUND] notes there is no ground truth; **alridhawi2026stock** (arXiv 2603.05917) [FT] checks learned weights only qualitatively against GICS.
+- Kill-test finds: **sadeghi2023causal** (CD-NOTS, Bloomberg) [FT, BACKGROUND] notes there is no ground truth; **alridhawi2026stock** (arXiv 2603.05917, IEEE Access DOI) [FT] reports only descriptive sector averages of learned weights (same-sector 0.72 vs cross-sector 0.41) for 20 stocks. The weights are initialised from sector and correlation priors, so the alignment is partly circular, and there is no external ground truth.
 
 **5. Kill test.** Searches (kill_K4 I10; kill_K2 I11; kill_K1 I12): I10 **WEAKENED** by guo2026nystrom (single model and market); I11 and I12 **SURVIVED**. No work scores causal or learned stock edges against independent economic links, or tests them as predictors of future relations.
 
@@ -356,9 +356,9 @@ Risks: open-source code that does not run (pick models with working repos at the
 **3. Supervisor directions.** **Anomaly detection** · knowledge networks · signed and temporal edges · heterogeneous graph as context. Adjacent to her financial-crime work without being AML.
 
 **4. Closest 2025–2026 work and the difference.**
-- **ren2026effect** (arXiv 2605.08726) [ABS]. Explains *average* excess co-movement through co-attention and co-ownership (China and US); flags no individual edges.
+- **ren2026effect** (J. Int. Financ. Mark. Inst. Money 106, 2026; arXiv 2605.08726) [FT]. Explains *average* factor-residual excess co-movement through retail co-attention and common institutional ownership (China and US); flags no individual edges.
 - **caputi2026financial** (arXiv 2604.02549) [FT]. Graph-level anomaly detection on directed but unsigned TSX-60 graphs with 7 stress episodes.
-- **chen2026velocity** (arXiv 2608.05373) [FT]. Manipulation detection with positive-only labels from SEC complaints; not graph-based.
+- **chen2026velocity** (arXiv 2608.05373) [FT]. Manipulation detection with positive-only labels from enforcement documents (SEC v. Patel; a SEBI order); not graph-based.
 - **iwata2026no** (arXiv 2607.26859) [ABS]. Positive-unlabelled inference on a company graph ("no record ≠ no risk").
 - **huang2026crossstock** [FT]. A source of typed relations explaining co-movement; no anomaly angle.
 
@@ -445,7 +445,7 @@ Kill tests: 2–13 searches per idea, by four kill-test agents (files `sweep/kil
 
 | ID | Idea | Outcome | Responsible / closest paper | Where it went |
 | --- | --- | --- | --- | --- |
-| I1 | Signed lead-lag edge-state forecasting | **Survived** | krstev2025temporal (withdrawn, 37 assets); castilho2021forecasting [bkg] | **Card 3** |
+| I1 | Signed lead-lag edge-state forecasting | **Survived** | krstev2025temporal (withdrawn, 37 assets, link existence incl. ± relations); castilho2021forecasting [bkg] | **Card 3** |
 | I2 | Directed lagged structural balance (sign + lag cycle consistency) | Weakened | dahake2026sectoral; gallo2025rethinking (signed directed ERGM nulls) | Module in Card 3 (RQ B) |
 | I3 | Edge-event anomalies in signed lead-lag graphs (early warning) | Weakened | caputi2026financial; neela2025systemic; zhao2025can | R1 |
 | I4 | Credit events → connected firms' signed equity reactions | Survived (narrowly) | xu2025finripple; Hertzel 2008 [bkg] | **Card 4** |
