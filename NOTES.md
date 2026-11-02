@@ -62,9 +62,24 @@ Sources opened: UU staff page (`uu.nl/medewerkers/IRKarnstedtHulpus/Onderzoek`),
 ---
 
 ## 1. Search queries per theme
-(filled in Phase 1 from subagent logs; see also `sweep/T*.md`)
+Every query (tool, wording, outcome) is logged in the §F table of each sweep file. Summary:
+- **T1**: 23 logged queries — full table in `sweep/T1.md` §F.
+- **T2**: 34 logged queries — full table in `sweep/T2.md` §F.
+- **T3**: 40 logged queries — full table in `sweep/T3.md` §F.
+- **T4**: 25 logged queries — full table in `sweep/T4.md` §F.
+- **T5**: 37 logged queries — full table in `sweep/T5.md` §F.
+- **T6**: 45 logged queries — full table in `sweep/T6.md` §F.
+- **T7**: 28 logged queries — full table in `sweep/T7.md` §F.
+- **T8**: 38 logged queries — full table in `sweep/T8.md` §F.
+- **T0 (lead agent)**: 6 queries (13F common ownership + GNN; peer reaction to downgrade/default; IPO cold-start relations; earnings information transfer + GNN; LLM major-customer extraction from 10-Ks; Hoberg–Phillips TNIC). Outcomes in `sweep/T0_lead_notes.md`.
 
 ## 2. Decisions during the sweep
+- **D1.1 (1 Nov, 20:52):** Ran 8 theme subagents in parallel (user's explicit request), all bound to `sweep/RULES.md`.
+- **D1.2 (1 Nov, ~21:10):** The **5-hour usage limit was hit**. Three agents (T2, T3, T8) were cut off after writing their files; all eight files are complete (sections A–G present). The session resumed 2 Nov, 09:32. No agent was restarted, because nothing was missing.
+- **D1.3:** A shared WebSearch budget ran out partway through the T1 (after 17 queries), T4 (22), T5 (25), T6 (35) and T7 (20) sweeps. Those agents continued via arXiv monthly listings, the OpenReview API and reference snowballing. Consequence: proceedings and journal coverage is incomplete, so crowding counts are lower bounds (stated in lit_review.md).
+- **D1.4:** Duplicate keys for the same paper across themes: krstev2025temporal = anonymous2025temporal; huang2026crossstock = huang2026cross; sun2025intercorprelllm = sun2025intercorprel; zhang2026llmenhanced = zhang2026llm; li2025finkario = li2026finkario; harit2025from = harit2025news. Canonical keys are the first in each pair. references.bib keeps one entry per title (merge script dedups by normalised title).
+- **D1.5:** The lit review keeps the full per-paper template entries from the sweeps verbatim. The lead agent wrote the per-theme syntheses, crowding map and comparison table (Phase 2).
+- **D1.6 (agent-reported oddities, to keep in mind):** the arXiv 2504.20058v2 HTML contained instruction-like text (ignored by the T4 agent). TAGN (MDPI 2026) claims public data but uses FactSet. Several papers have internal inconsistencies (Kang 2026, CSHT, Fanshawe, Li & Fan v1); see the sweep files.
 
 ## 3. Raw ideas, kill tests and rejected ideas
 
