@@ -147,4 +147,14 @@ Every query (tool, wording, outcome) is logged in the §F table of each sweep fi
 - HERDGNN (CIKM 2026)
 
 ## 8. Open questions for the supervisor
-- Does UU give MSc AI students WRDS access (CRSP / Compustat / Compustat customer segments)?
+1. Does UU give MSc AI students WRDS access (CRSP / Compustat / Compustat customer segments)? This decides survivor-free, point-in-time US universes for Cards 3–6.
+2. Does she prefer a method contribution or an evaluation/benchmark contribution?
+3. Which of her signals matters most: signed time-activated edges (Card 3), KG link prediction (Card 1) or credit default (Card 4)?
+4. Is an LLM-extracted KG (FinReflectKG, CC-BY-NC) acceptable as data and partial ground truth? What GPU/LLM budget is available?
+5. Scope: US only, or with a European/Euronext angle?
+
+## 9. Checks for Frank himself
+- Google Scholar "cited by" for: arun2025finreflectkg (2508.17906), krstev2025temporal (OpenReview KsWRLyIAKP), xu2025finripple (2505.23826), yang2026llm (2607.15640), izadifar2026institutional (2607.12067), guo2026nystrom (2609.08106).
+- The SJSU project FinKGR (naik2026finkgr, embargoed until 2027): does it use FinReflectKG? Ask the author or SJSU if Card 1 is chosen.
+- FinReflectKG licence (CC-BY-NC) vs thesis and internship use.
+- WRDS access at UU; UU AI & Finance Lab for overlapping student projects.
